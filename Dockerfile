@@ -20,8 +20,8 @@ RUN pip install pip install django-ra-erp
 RUN pip install django-compressor==2.4
 RUN ra-admin start erp
 WORKDIR  /root/d/ra/django-ra-erp/
-RUN python manage.py migrate
-RUN python manage.py createsuperuser
+RUN python /root/d/ra/django-ra-erp/ra/project_template/project_template/manage.py migrate
+RUN python /root/d/ra/django-ra-erp/ra/project_template/project_template/manage.py createsuperuser
 RUN ls -al
 EXPOSE 9000
 CMD python manage.py runserver 0.0.0.0:9000
