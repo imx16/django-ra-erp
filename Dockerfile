@@ -15,13 +15,13 @@ ENV PYTHONUNBUFFERED 1
 
 # install dependencies
 RUN pip install --upgrade pip
-COPY /dist/* /dist/
-RUN pip install /dist/django-ra-erp-1.1.1.tar.gz
+
+RUN pip install pip install django-ra-erp
 RUN pip install django-compressor==2.4
-RUN ra-admin start project_name
-WORKDIR /code/project_name
+RUN ra-admin start erp
+WORKDIR  /root/d/ra/django-ra-erp/
 RUN python manage.py migrate
 RUN python manage.py createsuperuser
 RUN ls -al
-EXPOSE 8000
-CMD python manage.py runserver 0.0.0.0:8000
+EXPOSE 9000
+CMD python manage.py runserver 0.0.0.0:9000
